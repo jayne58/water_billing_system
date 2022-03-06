@@ -15,7 +15,7 @@ if(!isset($_SESSION["username"])){
       // $meter_number = $_SESSION["meter_number"];
       
       $amount=$_POST['amount']; 
-      $sql="SELECT * FROM userdetails  WHERE userdetails.username = '".$username."'" ;  
+      $sql="SELECT * FROM userdetails  WHERE username = '$username' " ;  
       $result = $conn->query($sql) or die($conn->error);
       $resultData = $result->fetch_assoc();
       $fname = $resultData["fname"] ; 
