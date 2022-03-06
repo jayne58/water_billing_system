@@ -1,0 +1,93 @@
+.navbar .nav-item{
+  margin: 0 20px;
+}
+
+.container{
+    margin-top: 50px;
+   /* margin-left: 200px;*/
+    width: 400px;
+    min-height: 400px;
+    background-color: whitesmoke ;
+    margin-bottom: 50px;
+}
+.body{   
+    background-image: url("image3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+ .container .register-text{
+     background-color: aqua;
+     text-align: center;
+     font-size: 30px;
+     font-weight: 280;
+     margin-top: 20px;
+     margin-bottom: 20px;
+ }
+
+ .container .login .input-group{
+    margin-bottom: 15px;
+    width: 100%;
+    height: 50px;
+ }
+ .container .login .input-group input{
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    padding: 15px 20px;
+    
+}.container .login .input-group .btn{
+    border: none;
+    background: aqua;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 170px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    top: 60px; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .content{
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+.content .container{
+  width: 400px;
+    min-height: 400px;
+    background-color: whitesmoke ;
+    margin-bottom: 50px;
+}
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  .content .paragraph-text{
+    color: black;
+    font-size: 20px;
+    font-weight:250 ;
+  }
