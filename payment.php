@@ -15,20 +15,22 @@ if(!isset($_SESSION["username"])){
       // $meter_number = $_SESSION["meter_number"];
       
       $amount=$_POST['amount']; 
-      $sql="SELECT fname, lname, phone_number, meter_number, residency, usertype  FROM userdetails  WHERE userdetails.username = '".$username."'" ;  
+      $sql="SELECT * FROM userdetails  WHERE userdetails.username = '".$username."'" ;  
       $result = $conn->query($sql) or die($conn->error);
-      $result->fetch_assoc();
-      $fname = $result["fname"] ; 
-      $lname = $result["lname"] ;
-      $meter_number= $result["meter_number"] ;
-
-      $regg="INSERT INTO `paymentdetails`(`fname`, `lname`, `meter_number`, `amount`, `payment_date`)VALUES( $fname, $lname, $meter_number, $amount,$date().today)";
+      $resultData = $result->fetch_assoc();
+      $fname = $resultData["fname"] ; 
+      $lname = $resultData["lname"] ;
+      $meter_number= $resultData["meter_number"] ;
      
+      $regg="INSERT INTO `paymentdetails`(`fname`, `lname`, `meter_number`, `amount`, `payment_date`)VALUES( $fname, $lname, $meter_number, $amount,CURDATE())";
+      mysqli_query($conn, $regg) or die(mysqli_error($conn));
         if(mysqli_query($conn, $regg)){
-     echo 'Payment successful';
-}else{
-    echo 'something went wrong';
-}
+            echo 'Payment successful';
+            
+        }else{
+            echo 'something went wrong what could be the issue ' ,  $fname  ;
+           
+        }
 }
 mysqli_close($conn); 
 
