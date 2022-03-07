@@ -1,7 +1,4 @@
 <?php
-
-use LDAP\Result;
-
 session_start();
 include 'connection.php';
 if(!isset($_SESSION["username"])){
@@ -9,26 +6,37 @@ if(!isset($_SESSION["username"])){
 }
 
     
+
  if(isset($_POST['submit'])){
       $username = $_SESSION["username"];
+      //  $mode_of_payment="";
       // $lname = $_SESSION["lname"];
       // $meter_number = $_SESSION["meter_number"];
       
       $amount=$_POST['amount']; 
+  
       $sql="SELECT * FROM userdetails  WHERE username = '$username' " ;  
+
+      // $result=mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
       $result = $conn->query($sql) or die($conn->error);
       $resultData = $result->fetch_assoc();
       $fname = $resultData["fname"] ; 
       $lname = $resultData["lname"] ;
       $meter_number= $resultData["meter_number"] ;
      
-      $regg="INSERT INTO `paymentdetails`(`fname`, `lname`, `meter_number`, `amount`, `payment_date`)VALUES( $fname, $lname, $meter_number, $amount,CURDATE())";
-      mysqli_query($conn, $regg) or die(mysqli_error($conn));
-        if(mysqli_query($conn, $regg)){
-            echo 'Payment successful';
+      $sql="INSERT INTO `paymentdetails`(`fname`, `lname`, `meter_number`, `amount`, `payment_date`)
+      
+      VALUES($fname, $lname, $meter_number, $amount,CURDATE())";
+
+      $result=mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+  
+        if($result){
+          echo "<script> alert('payment successful')</script>";
             
         }else{
-            echo 'something went wrong what could be the issue ' ,  $fname  ;
+          echo "<script> alert('something went wrong')</script>";
            
         }
 }
@@ -69,7 +77,6 @@ mysqli_close($conn);
 <!-- Page content -->
 
 <div class="content">
-  <h2>Welcome to client home page</h2>
   <div class="container">
 
         <form action="#" method="POST" class="login">
@@ -104,4 +111,4 @@ mysqli_close($conn);
 
 
 
-
+ 

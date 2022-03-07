@@ -22,15 +22,10 @@ session_start();
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
   <div class="navbar-header">
+  <a class="navbar-brand" href="#"><img src="image4.jpg" alt="logo" style="width:40px"></a>
       <a class="navbar-brand" href="#">Nairobi Water and Sewerage Company</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="home.php">Home</a></li>
-      <li><a href="about.php">About us</a></li>
-      <li><a href="services.php">Services</a></li>
-      <li><a href="contact.php">Contact us</a></li>
-      <a href="logout.php">Logout</a>
-    </ul>
+    
     
   </div>
 </nav>
@@ -40,6 +35,7 @@ session_start();
   <a href="payment.php">Make Payment</a>
   <a href="statement.php">View Mini Statement</a>
   <a href="feedback.php">Send feedback</a>
+  <a href="logout.php">Logout</a>
 </div>
 
 <!-- Page content -->

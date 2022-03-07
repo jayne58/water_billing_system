@@ -10,13 +10,12 @@ include 'connection.php';
         $lname=$_POST['lname'];
         $meter_number=$_POST['meter_number'];
         
-         
         $regg="DELETE FROM 'userdetails' WHERE meter_number= $meter_number";
     
         if(mysqli_query($conn, $regg)){
-     echo 'User deleted successfully';
+          echo "<script> alert('User deleted successfully')</script>";
 }else{
-    echo 'something went wrong';
+  echo "<script> alert('Something went wrong')</script>";
 }
 }
 mysqli_close($conn); 

@@ -13,9 +13,9 @@
         echo "Passwords do not match";
     }
         if(mysqli_query($conn, $regg)){
-            echo 'details updated successfully';
+          echo "<script> alert('details updated successfully')</script>";
 }else{
-    echo 'something went wrong';
+  echo "<script> alert('something went wrong')</script>";
 }
 }
 mysqli_close($conn);       
