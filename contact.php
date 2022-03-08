@@ -32,9 +32,9 @@
   </div>
 </nav>
 <div class="container">
-<div class="row">
+
   <form>
-  
+  <div class="row">
   <div class="col-sm-8">
   <p>For new water connection and sewer application,kindly fill the form below</p>
   <input type="text" placeholder="first name"><br><br>
@@ -42,12 +42,17 @@
 placeholder="phone number"><br><br><input type="text" placeholder="residence"><br><br>
             <button name="submit"> Submit</button>
 <p>For suggestions and complaints,kindly log in to your account and submit a feedback through the 
-  feedback form.
+  feedback form.<br>OR 
 </p>
-</form>
+</div>
+<div class="col-sm-8">
+  <p><i class="fa fa-phone" aria-hidden="true">+254723852152</i>
+</p>
+</div>
   </div>
-<div class="col-sm-4">
-</div></div>
+</form>
+  
+
   
 </div>
 </body>
