@@ -1,5 +1,9 @@
 <?php
+session_start();
     include 'connection.php';
+    if(!isset($_SESSION["username"])){
+      header("location:login.php");
+  }
     
  if(isset($_POST['submit'])){
         $phone_number=$_POST['phone_number'];
