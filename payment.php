@@ -15,19 +15,19 @@ if(!isset($_SESSION["username"])){
       
       $amount=$_POST['amount']; 
   
-      $sql="SELECT * FROM userdetails  WHERE username = '$username' " ;  
+      $sql="SELECT * FROM userdetails WHERE username = '$username' " ;  
 
       // $result=mysqli_query($conn, $sql) or die(mysqli_error($conn));
-
       $result = $conn->query($sql) or die($conn->error);
       $resultData = $result->fetch_assoc();
       $fname = $resultData["fname"] ; 
       $lname = $resultData["lname"] ;
+      $date = date('Y-m-d H:i:s');;
       $meter_number= $resultData["meter_number"] ;
      
       $sql="INSERT INTO `paymentdetails`(`fname`, `lname`, `meter_number`, `amount`, `payment_date`)
       
-      VALUES($fname, $lname, $meter_number, $amount,CURDATE())";
+      VALUES('$fname', '$lname', '$meter_number', '$amount', '$date')";
 
       $result=mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
@@ -104,11 +104,3 @@ mysqli_close($conn);
 </body>
     
 </html>
-
-
-
-
-
-
-
- 

@@ -39,6 +39,7 @@ session_start();
 </div>
 
 <!-- Page content -->
+<div class="container">
 <div class="content">
 <?php
 include 'connection.php';

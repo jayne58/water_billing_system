@@ -34,21 +34,35 @@
 <div class="content">
   <div class="container">
   <?php
-include 'connection.php';
-$sql = "SELECT fname, lname, meter_number, amount, payment_date  FROM paymentdetails";
-$result = $conn->query($sql);
+  session_start();
+  include 'connection.php';
+  if(!isset($_SESSION["username"])){
+      header("location:login.php");
+  }
+$username = $_SESSION["username"];
+$sql="SELECT * FROM userdetails WHERE username = '$username' " ;  
 
-if ($result->num_rows > 0) {
-  echo "<table class='table-bordered'><tr class='table-primary'><th>fname</th><th>lname</th><th>meter_number</th><th>amount</th><th>payment_date</th></tr>";
+      // $result=mysqli_query($conn, $sql) or die(mysqli_error($conn));
+      $result = $conn->query($sql) or die($conn->error);
+      $resultData = $result->fetch_assoc();
+      $fname = $resultData["fname"] ; 
+      $lname = $resultData["lname"] ;
+      $date = date('Y-m-d H:i:s');;
+      $meter_number= $resultData["meter_number"] ;
+$sql = "SELECT fname, lname, meter_number, amount, payment_date  FROM paymentdetails WHERE meter_number = '$meter_number'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  echo "<table class='table-bordered'><tr><th>fname</th><th>lname</th><th>meter_number</th><th>amount</th><th>payment_date</th></tr>";
   // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<tr class='table-primary'><td>".$row["fname"]."</td><td>".$row["lname"]."</td><td>".$row["meter_number"]."</td><td>".$row["amount"]."</td><td>".$row["payment_date"]."</td></tr>";
+  while($row = mysqli_fetch_assoc($result)) {
+    echo "<tr><td>".$row["fname"]."</td><td>".$row["lname"]."</td><td>".$row["meter_number"]."</td><td>".$row["amount"]."</td><td>".$row["payment_date"]."</td></tr>";
   }
   echo "</table>";
 } else {
   echo "0 results";
 }
-$conn->close();
+
 ?>
         
                 

@@ -9,8 +9,8 @@
         $residency=$_POST['residency'];
         $usertype=$_POST['usertype'];
         $username=$_POST['username'];
-        $password=$_POST['password'];
-        $cpassword=$_POST['cpassword'];
+        $password=md5($_POST['password']);
+        $cpassword=md5($_POST['cpassword']);
          if($password==$cpassword){
         $regg="INSERT INTO `userdetails`(`fname`, `lname`, `phone_number`, `meter_number`, `residency`, `usertype`, `username`, `password`)
       

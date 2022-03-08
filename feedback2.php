@@ -40,6 +40,7 @@ session_start();
 </div>
 
 <!-- Page content -->
+<div class="container">
 <div class="content">
 <?php
 include 'connection.php';
@@ -47,10 +48,10 @@ $sql = "SELECT score, feedback FROM feedbackdetails";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  echo "<table class='table-bordered'><tr class='table-primary'><th>Score</th><th>Feedback</th></tr>";
+  echo "<table class='table-bordered'><tr><th>Score</th><th>Feedback</th></tr>";
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "<tr class='table-primary'><td>".$row["score"]."</td><td>".$row["feedback"]."</td></tr>";
+    echo "<tr><td>".$row["score"]."</td><td>".$row["feedback"]."</td></tr>";
   }
   echo "</table>";
 } else {

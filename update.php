@@ -69,10 +69,10 @@ mysqli_close($conn);
     <input type="text" placeholder="residency" name="residency" required>
     </div>
     <div class="input-group">
-    <input type="text" placeholder="new password" name="password" required>
+    <input type="password" placeholder="new password" name="password" required>
     </div>
     <div class="input-group">
-    <input type="text" placeholder="confirm password" name="cpassword" required>
+    <input type="password" placeholder="confirm password" name="cpassword" required>
     </div>
 
      <div class="input-group">
